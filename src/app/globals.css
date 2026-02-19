@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --foreground: #1c1917;
+  --sage-50: #f6f7f5;
+  --sage-100: #e8ebe6;
+  --sage-200: #d1d7cc;
+  --sage-500: #7a8570;
+  --sage-600: #5f6b55;
+  --sage-700: #4a5342;
+  --terracotta: #c17357;
+  --terracotta-light: #d8896f;
+  --cream: #fef8f3;
 }
 
 @theme inline {
@@ -13,31 +22,32 @@
 }
 
 body {
-  background: var(--background);
+  background: linear-gradient(to bottom, var(--cream) 0%, #ffffff 100%);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  letter-spacing: -0.01em;
 }
 
 .story-link {
   position: relative;
-  transition: color 0.2s ease;
+  transition: color 0.3s ease;
 }
 
 .story-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -3px;
+  bottom: -4px;
   width: 100%;
   height: 2px;
   transform: scaleX(0);
   transform-origin: left;
-  background: #e11d48;
-  transition: transform 0.25s ease;
+  background: var(--terracotta);
+  transition: transform 0.3s ease;
 }
 
 .story-link:hover {
-  color: #881337;
+  color: var(--sage-700);
 }
 
 .story-link:hover::after {
@@ -45,20 +55,21 @@ body {
 }
 
 .btn-primary {
-  border-radius: 999px;
-  background: #e11d48;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--terracotta) 0%, var(--terracotta-light) 100%);
   color: #fff;
   font-size: 0.95rem;
   font-weight: 600;
-  padding: 0.75rem 1.2rem;
+  padding: 0.875rem 1.75rem;
+  box-shadow: 0 4px 12px rgba(193, 115, 87, 0.3);
   transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .btn-primary:hover {
-  transform: translateY(-1px);
-  background: #be123c;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(193, 115, 87, 0.4);
 }
 
 .btn-secondary {
@@ -80,33 +91,35 @@ body {
 }
 
 .btn-glass {
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.18);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.2);
   color: #fff;
   font-size: 0.95rem;
   font-weight: 600;
-  padding: 0.75rem 1.2rem;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(8px);
+  padding: 0.875rem 1.75rem;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(12px);
   transition:
-    transform 0.2s ease,
-    background 0.2s ease;
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
 
 .btn-glass:hover {
-  transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.28);
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.7);
 }
 
 .card-lift {
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-lift:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 32px rgba(190, 24, 93, 0.08);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(122, 133, 112, 0.15), 0 8px 16px rgba(122, 133, 112, 0.1);
 }
 
 .hero-image {
@@ -115,21 +128,21 @@ body {
 
 .service-card {
   transition:
-    transform 0.28s ease,
-    box-shadow 0.28s ease;
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 22px 36px rgba(0, 0, 0, 0.12);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(122, 133, 112, 0.2);
 }
 
 .service-image {
-  transition: transform 0.6s ease;
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .service-card:hover .service-image {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .animate-fade-in-up {
